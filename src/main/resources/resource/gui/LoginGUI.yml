@@ -1,0 +1,97 @@
+Gui:
+  Type: Inventory
+  Position: '5'
+  X: '0'
+  Y: '0'
+  Width: '300'
+  Height: '200'
+  Image: gui/background/background_2.png
+  Color: '#FFFFFF'
+  Transparent: '250'
+  Mask: 'true'
+  Tooltip: ''
+ContentList:
+
+  Title:
+    Type: Text
+    Position: '8'
+    X: 0
+    Y: -120
+    Text:
+      - 請輸入密碼登入
+    TextColor: '#FFFFFF'
+    TextSize: '1.2'
+    Space: '10'
+    Width: '0'
+
+
+  PassWordInput:
+    Type: Input
+    Position: '8'
+    X: 0
+    Y: -80
+    LoginY: -80
+    Image: 
+    Width: '280'
+    Height: '20'
+    Color: '#5B5B5B'
+    Transparent: '200'
+    Title: ''
+    TitleColor: '#577700'
+    TitleSize: '1.2'
+    Prompt: 請輸入密碼
+    WrongPassword: 密碼錯誤!
+    PasswordMinLength: '密碼太短，最少{min}個字!'
+    PasswordMaxLength: '密碼太長，最多{max}個字!'
+    PromptColor: '#daa520'
+    PromptSize: '1.2'
+    Text: ''
+    TextColor: '#00CACA'
+    TextSize: '1.2'
+    TextMaxLength: '100'
+    PassWord: true
+    InputStart: 3
+    InputEnd: -3
+    Use: 'true'
+
+  LoginButton:
+    Type: Button
+    Position: '8'
+    X: '-45'
+    Y: '-20'
+    Width: '65'
+    Height: '24'
+    Image: gui/button/button_default.png
+    Color: '#FFFFFF'
+    Transparent: '255'
+    HoverImage: gui/button/button_hover.png
+    HoverColor: '#FFFFFF'
+    HoverTransparent: '255'
+    ClickImage: gui/button/button_hover.png
+    ClickColor: '#FFFFFF'
+    ClickTransparent: '255'
+    Text: 登入
+    TextColor: '#FFFFFF'
+    TextSize: '1.2'
+    Use: 'true'
+  LeaveServerButton:
+    Type: Button
+    Position: '8'
+    X: '45'
+    Y: '-20'
+    Width: '65'
+    Height: '24'
+    Image: gui/button/button_default.png
+    Color: '#FFFFFF'
+    Transparent: '255'
+    HoverImage: gui/button/button_hover.png
+    HoverColor: '#FFFFFF'
+    HoverTransparent: '255'
+    ClickImage: gui/button/button_hover.png
+    ClickColor: '#FFFFFF'
+    ClickTransparent: '255'
+    Text: 離開伺服器
+    TextColor: '#FFFFFF'
+    TextSize: '1.2'
+    Use: 'true'
+

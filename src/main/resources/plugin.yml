@@ -1,0 +1,11 @@
+name: AuthMeGUI
+version: '${version}'
+main: com.daxton.authmegui.AuthMeGUI
+api-version: '1.16'
+softdepend: [UnrealCore]
+folia-supported: true
+
+commands:
+  authmegui:
+    description: Basic instructions.
+    aliases: authmegui

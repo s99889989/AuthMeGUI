@@ -1,0 +1,6 @@
+PassWord:
+  #密碼最短限制
+  MinLength: 5
+  #密碼最多限制
+  MaxLength: 30
+
