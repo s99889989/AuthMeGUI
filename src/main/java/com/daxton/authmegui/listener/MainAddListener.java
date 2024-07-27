@@ -2,7 +2,6 @@ package com.daxton.authmegui.listener;
 
 import com.daxton.authmegui.AuthMeGUI;
 import com.daxton.authmegui.controller.MainAddController;
-import com.daxton.unrealcore.UnrealCore;
 import com.daxton.unrealcore.application.UnrealCoreAPI;
 import com.daxton.unrealcore.application.method.SchedulerFunction;
 import com.daxton.unrealcore.common.event.PlayerKeyBoardEvent;
@@ -10,7 +9,6 @@ import com.daxton.unrealcore.communication.event.PlayerConnectionSuccessfulEvent
 
 import com.daxton.unrealcore.display.event.gui.PlayerGUICloseEvent;
 import com.daxton.unrealcore.display.event.gui.PlayerGUIOpenEvent;
-import com.daxton.unrealcore.display.type.GUIType;
 import fr.xephi.authme.api.v3.AuthMeApi;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -31,7 +29,7 @@ public class MainAddListener implements Listener {
         }
 
 
-        AuthMeGUI.sendLogger("玩家連線成功");
+        AuthMeGUI.sendTestLogger("玩家連線成功");
         Player player = event.getPlayer();
         String uuidString = player.getUniqueId().toString();
         boolean sendGUI = MainAddController.sendGUI.get(uuidString);
@@ -122,7 +120,7 @@ public class MainAddListener implements Listener {
         boolean sendGUI = MainAddController.sendGUI.get(uuidString);
         if(sendGUI){
             if(guiName.equals("AuthMeGUI")){
-                SchedulerFunction.runLater(AuthMeGUI.authMeGUI, ()->{
+                SchedulerFunction.runLater(AuthMeGUI.unrealCorePlugin.getJavaPlugin(), ()->{
                     MainAddController.openGUI(player);
                 }, 1);
 

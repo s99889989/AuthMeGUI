@@ -4,12 +4,7 @@ package com.daxton.authmegui.listener;
 
 import com.daxton.authmegui.AuthMeGUI;
 import com.daxton.authmegui.controller.MainAddController;
-import com.daxton.unrealcore.UnrealCore;
-import com.daxton.unrealcore.application.UnrealCoreAPI;
-import com.daxton.unrealcore.application.method.SchedulerFunction;
 import com.daxton.unrealresource.event.UnrealResourceLoadFinishEvent;
-import fr.xephi.authme.api.v3.AuthMeApi;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,7 +15,7 @@ public class ResourceListener implements Listener {
 
     @EventHandler//當玩家資源加載成功
     public void onPlayerJoin(UnrealResourceLoadFinishEvent event) {
-        AuthMeGUI.sendLogger("資源載入成功");
+        AuthMeGUI.sendTestLogger("資源載入成功");
         Player player = event.getPlayer();
         String uuidString = player.getUniqueId().toString();
 

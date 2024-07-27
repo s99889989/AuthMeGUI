@@ -20,7 +20,7 @@ public class MainAddCommand implements CommandExecutor {
                     }
                     player.sendMessage("[AuthMeGUI] Reload");
                 }
-                AuthMeGUI.sendSystemLogger("Reload");
+                AuthMeGUI.unrealCorePlugin.sendSystemLogger("Reload");
                 MainAddController.load();
                 return true;
             }

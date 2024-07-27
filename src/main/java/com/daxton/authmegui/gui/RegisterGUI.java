@@ -2,14 +2,11 @@ package com.daxton.authmegui.gui;
 
 import com.daxton.authmegui.AuthMeGUI;
 import com.daxton.authmegui.controller.MainAddController;
-import com.daxton.unrealcore.application.UnrealCoreAPI;
-import com.daxton.unrealcore.application.method.SchedulerFunction;
 import com.daxton.unrealcore.common.type.MouseActionType;
 import com.daxton.unrealcore.common.type.MouseButtonType;
 import com.daxton.unrealcore.display.content.gui.UnrealCoreGUI;
 import com.daxton.unrealcore.display.content.module.control.ButtonModule;
 import com.daxton.unrealcore.display.content.module.input.InputModule;
-import com.daxton.unrealcore.display.type.GUIType;
 import fr.xephi.authme.api.v3.AuthMeApi;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
@@ -29,7 +26,7 @@ public class RegisterGUI extends UnrealCoreGUI {
         ButtonModule registerButton = (ButtonModule) getModule("RegisterButton");
         registerButton.onButtonClick((buttonModule, mouseButtonType, mouseActionType) -> {
             if(mouseButtonType == MouseButtonType.Left && mouseActionType == MouseActionType.On){
-                AuthMeGUI.sendLogger("註冊");
+                AuthMeGUI.sendTestLogger("註冊");
                 enter();
             }
         });
@@ -38,7 +35,7 @@ public class RegisterGUI extends UnrealCoreGUI {
         ButtonModule leaveServerButton = (ButtonModule) getModule("LeaveServerButton");
         leaveServerButton.onButtonClick((buttonModule, mouseButtonType, mouseActionType) -> {
             if(mouseButtonType == MouseButtonType.Left && mouseActionType == MouseActionType.On){
-                AuthMeGUI.sendLogger("離開");
+                AuthMeGUI.sendTestLogger("離開");
                 getPlayer().kickPlayer("");
             }
         });
@@ -118,13 +115,12 @@ public class RegisterGUI extends UnrealCoreGUI {
         if(keyName.equals("Enter") || keyName.equals("NumEnter")){
             enter();
         }
-       
+
         super.keyOn(keyID, keyName);
     }
 
     @Override
     public void opening() {
-
 
         //密碼輸入
         InputModule passWordInput = (InputModule) getModule("PassWordInput");
@@ -140,8 +136,6 @@ public class RegisterGUI extends UnrealCoreGUI {
         if(Bukkit.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null){
             placeholderChange();
         }
-
-
 
     }
 

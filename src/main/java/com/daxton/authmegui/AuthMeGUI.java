@@ -5,6 +5,7 @@ import com.daxton.authmegui.command.MainAddTab;
 import com.daxton.authmegui.controller.MainAddController;
 import com.daxton.authmegui.listener.MainAddListener;
 import com.daxton.authmegui.listener.ResourceListener;
+import com.daxton.unrealcore.UnrealCorePlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,46 +13,33 @@ import java.util.Objects;
 
 public final class AuthMeGUI extends JavaPlugin {
 
-    public static AuthMeGUI authMeGUI;
+    public static UnrealCorePlugin unrealCorePlugin;
 
     @Override
     public void onEnable() {
-        authMeGUI = this;
+        unrealCorePlugin = new UnrealCorePlugin(this);
 
         Objects.requireNonNull(Bukkit.getPluginCommand("authmegui")).setExecutor(new MainAddCommand());
         Objects.requireNonNull(Bukkit.getPluginCommand("authmegui")).setTabCompleter(new MainAddTab());
 
         MainAddController.load();
 
-        Bukkit.getPluginManager().registerEvents(new MainAddListener(), authMeGUI);
+        Bukkit.getPluginManager().registerEvents(new MainAddListener(), this);
         if(Bukkit.getServer().getPluginManager().getPlugin("UnrealResource") != null){
-            Bukkit.getPluginManager().registerEvents(new ResourceListener(), authMeGUI);
+            Bukkit.getPluginManager().registerEvents(new ResourceListener(), this);
         }
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+
     }
 
-    //發送後臺訊息(系統)
-    public static void sendSystemLogger(String message){
-        authMeGUI.getLogger().info("System: "+message);
-    }
-
-    //發送後臺訊息(錯誤)
-    public static void sendErrorLogger(String message){
-        authMeGUI.getLogger().info("Error: "+message);
-    }
 
     //發送後臺訊息(一般)
-    public static void sendLogger(String message){
-        //authMeGUI.getLogger().info(message);
+    public static void sendTestLogger(String message){
+        //unrealCorePlugin.sendLogger(message);
     }
 
-    //獲取資源路徑
-    public static String getResourceFolder(){
-        return authMeGUI.getDataFolder()+"/";
-    }
 
 }

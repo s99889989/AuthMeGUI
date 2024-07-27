@@ -37,7 +37,7 @@ public class MainAddController {
 
     public static void load(){
         //建立設定檔
-        PluginUtil.CreateConfig(AuthMeGUI.authMeGUI);
+        createConfig();
 
         loginGUIConfig = getYmlFile("/gui/LoginGUI.yml");
 
@@ -67,7 +67,7 @@ public class MainAddController {
     //從插件預設路徑獲取YML檔案
     public static FileConfiguration getYmlFile(String path){
 
-        File file = new File(AuthMeGUI.getResourceFolder(), path);
+        File file = new File(AuthMeGUI.unrealCorePlugin.getResourceFolder(), path);
         if(!file.exists()){
             try {
                 file.createNewFile();
@@ -77,4 +77,12 @@ public class MainAddController {
         }
         return YamlConfiguration.loadConfiguration(file);
     }
+
+    //建立設定檔
+    public static void createConfig(){
+        PluginUtil.resourceCopy(AuthMeGUI.unrealCorePlugin.getJavaPlugin(), "gui/LoginGUI.yml", false);
+        PluginUtil.resourceCopy(AuthMeGUI.unrealCorePlugin.getJavaPlugin(), "gui/RegisterGUI.yml", false);
+        PluginUtil.resourceCopy(AuthMeGUI.unrealCorePlugin.getJavaPlugin(), "config.yml", false);
+    }
+
 }
